@@ -13,7 +13,7 @@ model = joblib.load('Model.pkl')
 # predict result
 preds = model.predict(r[1])
 # 打印结果到控制台
-print("未来7天预测")
+print("Predict:")
 all_ave_t = []
 all_high_t = []
 all_low_t = []
@@ -22,8 +22,8 @@ for a in range(0, 6):
     today = DT.datetime.now()
     time = (today + DT.timedelta(days=a)).date()
     print(time.year, '/', time.month, '/', time.day,
-          ':最高气温', preds[a][0],
-          '最低气温', preds[a][1],)
+          ':Maximum Temperature', preds[a][0],
+          'Minimum Temperature', preds[a][1],)
     all_high_t.append(preds[a][0])
     all_low_t.append(preds[a][1])
 
